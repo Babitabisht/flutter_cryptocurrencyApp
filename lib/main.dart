@@ -7,8 +7,7 @@ import 'dart:convert';
 
 void main() async {
   List currencies = await getCurrencies();
-  print(
-      "-----------------------------------hello ----------------------------------------------------");
+  
   print(currencies);
   runApp(MyApp(currencies));
 }

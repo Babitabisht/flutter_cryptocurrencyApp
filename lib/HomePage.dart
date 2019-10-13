@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> implements CryptoListViewContract {
   CryptoListPresenter _presenter;
   List<Crypto> currencies;
+  bool _isLoading;
 
   final List<MaterialColor> _colors = [
     Colors.purple,
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> implements CryptoListViewContract {
   void initState() {
     super.initState();
     _presenter.loadCurrencies();
-    print("these are currencies $currencies");
+    _isLoading = true;
   }
 
   @override
@@ -38,7 +39,11 @@ class _HomePageState extends State<HomePage> implements CryptoListViewContract {
         title: new Text("Cryptocurrency"),
         elevation: defaultTargetPlatform == TargetPlatform.iOS ? 0.0 : 5.0,
       ),
-      body: _cryptoWidget(),
+      body: _isLoading
+          ? new Center(
+              child: new CircularProgressIndicator(),
+            )
+          : _cryptoWidget(),
     );
   }
 
@@ -159,6 +164,7 @@ class _HomePageState extends State<HomePage> implements CryptoListViewContract {
     // TODO: implement onLoadCryptoComplete
     setState(() {
       currencies = items;
+      _isLoading = false;
     });
   }
 

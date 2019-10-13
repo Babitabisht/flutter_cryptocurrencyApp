@@ -2,16 +2,13 @@ import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_cryptocurrency_app/data/dependency_injection.dart';
 import 'HomePage.dart';
-import 'dart:async';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 import 'data/dependency_injection.dart';
 
 void main() async {
   Injector.configure(Flavor.PROD);
-  
-  runApp(MyApp()); 
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -30,4 +27,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

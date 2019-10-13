@@ -1,5 +1,6 @@
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cryptocurrency_app/data/crypto_data.dart';
 
 // class Crypto {
 //   final String id;
@@ -39,116 +40,113 @@ import 'package:flutter/material.dart';
 
 class CryptoInfo extends StatelessWidget {
   final BuildContext context;
-  Map crypto;
+  Crypto crypto;
 
   CryptoInfo(this.context, this.crypto);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: new AppBar(
-          title: new Text("Crypto Info"),
-        ),
-        body: new Container(
-          child: new Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(16.0),
+      appBar: new AppBar(
+        title: new Text("Crypto Info"),
+      ),
+      body: new Container(
+        child: new Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            new Center(
+              child: new Text(
+                crypto.name,
+                style: new TextStyle(
+                    color: Colors.indigo,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35.0),
               ),
-              new Center(
-                child: new Text(
-                  crypto["name"],
-                  style: new TextStyle(
-                      color: Colors.indigo,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 35.0),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(16.0),
-              ),
-              new Text(
-                "Id  :     " + crypto["id"] + "\n",
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            new Text(
+              "Id  :     " + crypto.id + "\n",
+              style: new TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 15.0),
+            ),
+            new Text("symbol  :     " + crypto.symbol + "\n",
                 style: new TextStyle(
                     color: Colors.black87,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 15.0),
-              ),
-              new Text("symbol  :     " + crypto["symbol"] + "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text("rank  :     " + crypto["rank"] + "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text("price_usd  :     " + crypto["price_usd"] + "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text(
-                  "24h_volume_usd  :     " + crypto["24h_volume_usd"] + "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text(
-                  "market_cap_usd  :     " + crypto["market_cap_usd"] + "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text(
-                  "available_supply  :     " +
-                      crypto["available_supply"] +
-                      "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text("total_supply  :     " + crypto["total_supply"] + "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text("max_supply  :     " + crypto["max_supply"] + "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text(
-                  "percent_change_1h  :     " +
-                      crypto["percent_change_1h"] +
-                      "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text(
-                  "percent_change_24h  :     " +
-                      crypto["percent_change_24h"] +
-                      "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text(
-                  "percent_change_7d  :     " +
-                      crypto["percent_change_7d"] +
-                      "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0)),
-              new Text("last_updated  :     " + crypto["last_updated"] + "\n",
-                  style: new TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.0))
-            ],
-          ),
-        ));
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            new Text("rank  :     " + crypto.rank + "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            new Text("price_usd  :     " + crypto.price_usd + "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+
+            new Text("market_cap_usd  :     " + crypto.market_cap_usd + "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            new Text(
+                "available_supply  :     " + crypto.available_supply + "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            new Text("total_supply  :     " + crypto.total_supply + "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            new Text(
+                "percent_change_1h  :     " + crypto.percent_change_1h + "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            new Text(
+                "percent_change_24h  :     " + crypto.percent_change_24h + "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            new Text(
+                "percent_change_7d  :     " + crypto.percent_change_7d + "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            new Text(
+                "last_updated  :     " +
+                    (new DateTime.fromMillisecondsSinceEpoch(
+                            int.parse(crypto.last_updated) * 1000))
+                        .toString() +
+                    "\n",
+                style: new TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0)),
+            // new MaterialButton(
+            //   color: Colors.indigo,
+            //   child: new Text("see in date format"),
+            //   textColor: Colors.white,
+            //   onPressed: () => {
+            //     print(new DateTime.fromMillisecondsSinceEpoch(
+            //         int.parse(crypto["last_updated"]) * 1000))
+
+            //   },
+            // )
+          ],
+        ),
+      ),
+    );
   }
 }
